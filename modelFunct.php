@@ -1,17 +1,6 @@
 <?php
 require_once 'setting.php';
-
-if ( !isset($_SESSION['dbSelected']) ){
-	$_SESSION['dbSelected'] = 'docInfo';
-}
-
-if ( !isset($_SESSION['tableSelected']) ){
-	$_SESSION['tableSelected'] = '';
-}
-
-if ( isset($_GET['tableSelected']) ){
-	$_SESSION['tableSelected'] = $_GET['tableSelected'];
-}
+require_once 'xhr/CFDump.php';
 
 if ( $allowedIPList != '*' ){
 	$allowedIPList = str_replace(' ','',$allowedIPList);
@@ -41,15 +30,30 @@ if ( !isset($_SESSION['login']) ){
 	require_once 'viewClass.php';
 
 	$view = new viewClass();
+	$data = array();
 
-	$db = new \PDO($mysql_dsn, $mysql_user, $mysql_pass);
+	if ( isset($_POST['modelSelected']) ){
+		$_SESSION['modelSelected'] = $_POST['modelSelected'];
+	}
+	if ( !isset($_SESSION['modelSelected']) ){
+		$_SESSION['modelSelected'] = '';
+	}
+	$data['modelSelected'] = $_SESSION['modelSelected'];
+
 	$SQLStructModel = new SQLStruct($mysql_dsn, $mysql_user, $mysql_pass, $mysqlSA_dsn, $mysqlSA_user, $mysqlSA_pass);
+	$data['modelFunctionList'] = $SQLStructModel->modelFunctionList($_SESSION['modelSelected']);
 
-	$data['databaseList'] = $SQLStructModel->databaseList();
-	$dataHeader['pageTitle'] = $pageTitle;
-	
+	$data['modelList'] = $SQLStructModel->modelList();
+
+	$dataHeader['pageTitle'] = $pageTitle.'-Models';
+	if ($_SESSION['modelSelected'] != ''){
+		$dataHeader['pageTitle'] .= '-'.$_SESSION['modelSelected'];
+	}
+
 	$view->getView('header.inc',$dataHeader);
-	$view->getView('sql1.inc',$data);
+	$view->getView('modelFunct.inc',$data);
 	$view->getView('footer.inc',$dataHeader);
+
+	// new CFDump($data);
 }
 ?>
