@@ -28,9 +28,9 @@ want to browse. To save native MySQL comments (`$commentSaveLocation` `B` or
 2. Ensure the web server user can read the directory.
 3. Confirm `index.php` loads in a browser (you should see the login screen).
 
-## 3. Configure `db.php`
+## 3. Configure `config.php`
 
-Open `db.php` and set your connection details, login credentials, and options.
+Open `config.php` and set your connection details, login credentials, and options.
 See **[CONFIGURATION.md](CONFIGURATION.md)** for a full reference. At minimum,
 set the target MySQL connection:
 
@@ -41,7 +41,7 @@ $mysql_pass = "yourPassword";
 ```
 
 > ⚠️ **Never commit real credentials** to a public repository. The values
-> shipped in `db.php` are safe local placeholders.
+> shipped in `config.php` are safe local placeholders.
 
 ## 4. Create the SQL Assist storage tables
 
@@ -100,11 +100,11 @@ CREATE TABLE IF NOT EXISTS docModelFunction (
 ## 5. Log in
 
 Browse to the SQLAssist URL and sign in with the `$loginUsername` /
-`$loginPassword` you set in `db.php`. You'll land on the schema browser.
+`$loginPassword` you set in `config.php`. You'll land on the schema browser.
 
 ## 6. (Optional) Lock down access
 
-Set `$allowedIPList` in `db.php` to a comma-delimited list of IPs to restrict
+Set `$allowedIPList` in `config.php` to a comma-delimited list of IPs to restrict
 who can reach the app. See [CONFIGURATION.md](CONFIGURATION.md#ip-based-security).
 
 ---

@@ -18,10 +18,10 @@ if (!$databaseName) {
     die("Usage: php runBulkFillCLI.php <databaseName>\n");
 }
 
-// Connection credentials are loaded from db.php (same config used by the web
-// UI). Edit db.php to point at your target server — never hard-code
+// Connection credentials are loaded from config.php (same config used by the web
+// UI). Edit config.php to point at your target server — never hard-code
 // credentials here.
-require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../config.php';
 // $mysql_dsn / $mysql_user / $mysql_pass        — target server (information_schema)
 // $mysqlSA_dsn / $mysqlSA_user / $mysqlSA_pass  — SQL Assist comment storage
 // $commentSaveLocation                          — 'A' | 'B' | 'C'

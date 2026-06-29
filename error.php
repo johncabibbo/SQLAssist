@@ -20,7 +20,7 @@
 
 	<div id="errorMsg">
 		There was an error in communicating with your MySQL database.<br>
-		Please check your configuration settings in the db.php file.<br><br>
+		Please check your configuration settings in the config.php file.<br><br>
 		<a href="sql1.php">Click here to try again</a>
 	</div>
 	

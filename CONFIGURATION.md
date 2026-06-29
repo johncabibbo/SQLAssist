@@ -1,6 +1,6 @@
 # Configuration
 
-All configuration lives in **`db.php`** at the project root. This is the only
+All configuration lives in **`config.php`** at the project root. This is the only
 file you need to edit for a standard install. Each setting is described below.
 
 Copyright © 2026 Cloud Box 9 Inc. All rights reserved.
@@ -113,10 +113,10 @@ $pageTitle = "SQLAssist";   // shown in the browser tab / header
 ## Security notes
 
 - **Do not commit real credentials.** Keep production values out of any public
-  repository (consider a deploy-time copy of `db.php` or environment-specific
+  repository (consider a deploy-time copy of `config.php` or environment-specific
   overrides).
 - The CLI bulk-fill script (`xhr/runBulkFillCLI.php`) loads its credentials from
-  this same `db.php` — there are no separate secrets to maintain.
+  this same `config.php` — there are no separate secrets to maintain.
 
 ---
 

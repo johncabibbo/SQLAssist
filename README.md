@@ -32,7 +32,7 @@ Copyright © 2026 Cloud Box 9 Inc. All rights reserved. See [LICENSE](LICENSE).
 
 ```bash
 # 1. Place this directory in a web-accessible path (Apache/PHP).
-# 2. Copy your settings into db.php (connections + login).
+# 2. Copy your settings into config.php (connections + login).
 # 3. Create the SQL Assist storage tables (see INSTALLATION.md).
 # 4. Browse to the SQLAssist URL and log in.
 ```
@@ -42,15 +42,15 @@ Copyright © 2026 Cloud Box 9 Inc. All rights reserved. See [LICENSE](LICENSE).
 | Guide | Purpose |
 |-------|---------|
 | [INSTALLATION.md](INSTALLATION.md)   | Requirements, install steps, and storage-schema setup |
-| [CONFIGURATION.md](CONFIGURATION.md) | Full `db.php` settings reference |
+| [CONFIGURATION.md](CONFIGURATION.md) | Full `config.php` settings reference |
 | [USAGE.md](USAGE.md)                 | Using the application day to day |
 
 ## Project layout
 
 ```
 SQLAssist/
-├── db.php            # Your configuration (connections, login, options)
-├── setting.php       # Session bootstrap (loads db.php)
+├── config.php            # Your configuration (connections, login, options)
+├── setting.php       # Session bootstrap (loads config.php)
 ├── index.php         # Login / entry point
 ├── sql1.php          # Main schema browser page
 ├── modelFunct.php    # Model-function documentation page

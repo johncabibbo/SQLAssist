@@ -10,7 +10,7 @@
  */
 
 // Include database configuration
-require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/config.php';
 
 // Session lifetime: 8 hours (28800 seconds)
 $lifetime = 2851200;
@@ -42,7 +42,7 @@ require_once __DIR__ . '/model/sessionHandler.php';
 
 try {
     // Create database connection for the session handler.
-    // Credentials come from db.php ($sessionDb_dsn / $sessionDb_user /
+    // Credentials come from config.php ($sessionDb_dsn / $sessionDb_user /
     // $sessionDb_pass). If the connection fails, the catch block below
     // falls back to standard file-based PHP sessions.
     $sessionDb = new \PDO(

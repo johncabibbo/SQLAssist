@@ -1,6 +1,6 @@
 <?php
 /**
- * db.php — SQL Assist configuration
+ * config.php — SQL Assist configuration
  *
  * Copyright © 2026 Cloud Box 9 Inc. All rights reserved.
  *

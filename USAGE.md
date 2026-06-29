@@ -10,7 +10,7 @@ Copyright © 2026 Cloud Box 9 Inc. All rights reserved.
 ## Logging in
 
 1. Browse to the SQLAssist URL (e.g. `https://yourhost/SQLAssist/`).
-2. Enter the `$loginUsername` / `$loginPassword` from `db.php`.
+2. Enter the `$loginUsername` / `$loginPassword` from `config.php`.
 3. You'll be taken to the schema browser (`sql1.php`).
 
 > If SQL Assist shares a session with another cloudbox9.com app and you are
@@ -63,7 +63,7 @@ what each model function does. Create the table first (see
 ## Bulk-fill from the command line
 
 To fill blank column comments for an **entire database** without using the UI,
-run the CLI script. It loads its connection from `db.php`:
+run the CLI script. It loads its connection from `config.php`:
 
 ```bash
 cd SQLAssist/xhr
@@ -71,7 +71,7 @@ php runBulkFillCLI.php <databaseName>
 ```
 
 The script reports how many tables were processed and how many comments were
-written. Its save behavior follows `$commentSaveLocation` in `db.php`.
+written. Its save behavior follows `$commentSaveLocation` in `config.php`.
 
 ## Logging out
 
@@ -81,7 +81,7 @@ Click **Logout** (top-right) or browse to `logout.php` to end the session.
 
 | Symptom | Likely cause / fix |
 |---------|--------------------|
-| "There was an error in communicating with your MySQL database." | Wrong connection details in `db.php`, or the user lacks access to `information_schema`. |
+| "There was an error in communicating with your MySQL database." | Wrong connection details in `config.php`, or the user lacks access to `information_schema`. |
 | **Access Denied** on load | Your client IP isn't in `$allowedIPList`. Add it or set `'*'`. |
 | Comments don't persist | Using `$commentSaveLocation` `A`/`C` but the `SQLAssist` storage tables don't exist — see [INSTALLATION.md](INSTALLATION.md#4-create-the-sql-assist-storage-tables). |
 | Native comments not saved (`B`/`C`) | The MySQL user lacks `ALTER`/`COMMENT` privileges on the target tables. |
